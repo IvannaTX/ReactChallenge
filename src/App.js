@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import BasicInfo from "./component/BasicInfo";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      people: [
+         {
+          name: "Ivanna",
+          number: "1",
+          dateOfBirth: "11/10/1997",
+        },
+
+        {
+          name: "James",
+          number: "2",
+          dateOfBirth: "07/17/1987",
+        },
+
+        {
+          name: "Ivar",
+          number: "3",
+          dateOfBirth: "08/03/2021",
+        },
+      ]
+    };
+  }  
+  render() {
+    return this.state.people.map(function (person, index) {
+      return <BasicInfo key={index} person={person} />;
+    })
+  }
 }
 
 export default App;
